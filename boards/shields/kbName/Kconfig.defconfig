@@ -1,9 +1,0 @@
-# Required files for ZMK to recognize the shield
-
-if TRACKTOTEM_RIGHT
-
-# Name must be less than 16 characters long!
-config ZMK_KEYBOARD_NAME
-    default "tracktotem_right"
-
-endif
