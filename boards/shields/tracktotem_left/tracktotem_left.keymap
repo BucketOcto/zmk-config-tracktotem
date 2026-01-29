@@ -1,0 +1,49 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+
+/ {  
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "Base";
+            bindings = <
+				&kp Q    &kp W    &kp E    &kp R   &kp T
+				&kp A    &kp S    &kp D    &kp F   &kp G
+				&kp TAB  &kp X    &kp C    &kp V   &kp V
+				&kp Z    &kp LCTRL    &kp LALT    &kp SPACE
+			>;
+        };
+		
+		add_layer {
+			bindings = <
+				&kp N1       &kp N2            &kp N3           &kp N4             &kp N5
+				&kp GRAVE    &kp PRINTSCREEN   &kp SLASH        &kp LEFT_COMMAND   &kp N6
+				&kp LSHIFT   &kp LALT          &none            &none              &none
+				&kp LCTRL    &kp EQUAL         &kp ENTER                           &kp INSERT
+			>;
+		};
+				
+		
+		bt_layer {
+			bindings = <
+				&none            &none            &none            &none            &bootloader
+				&none            &none            &none            &none            &none
+				&none            &none            &none            &none            &none
+				&none                             &none            &none            &none
+			>;
+		};
+    };
+ };
+ 
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = < &kp Q  &kp W  &kp E>;
+            layers = < bt_layer>;
+        };
+    };
